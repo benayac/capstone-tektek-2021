@@ -41,7 +41,7 @@ func (p *Predict) SortByAccuracy() {
 
 func predictModel(firstText string, secondText string) float64 {
 	fmt.Printf("Enter Here\n")
-	url := "http://capstone-dockerized_ml-services_1:8001/predict"
+	url := "http://ml:8001/predict"
 	postBody, _ := json.Marshal(map[string]string{
 		"first_text":  firstText,
 		"second_text": secondText,
