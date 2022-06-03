@@ -86,7 +86,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 class TokenSimilarity:
 
-    def load_pretrained(self, from_pretrained:str="indobenchmark/indobert-large-p2"):
+    def load_pretrained(self, from_pretrained:str):
         self.tokenizer = AutoTokenizer.from_pretrained(from_pretrained)
         self.model = AutoModel.from_pretrained(from_pretrained)
         

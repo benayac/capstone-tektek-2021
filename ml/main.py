@@ -10,7 +10,7 @@ from ml import TokenSimilarity
 
 
 model = TokenSimilarity()
-model.load_pretrained('indobenchmark/indobert-base-p2')
+model.load_pretrained('indobenchmark/indobert-large-p2')
 
 app = FastAPI()
 # app = Flask(__name__)
