@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gorilla/mux"
 	_ "github.com/lib/pq"
@@ -42,6 +43,10 @@ func main() {
 	r.HandleFunc("/score/new", scoreService.InsertScoreHandler).Methods("GET", "OPTIONS")
 
 	r.Use(middleware.DefaultHeader)
-	fmt.Printf("Running Web Service on Port 8080")
-	log.Fatal(http.ListenAndServe(":8080", r))
+	portServer := os.Getenv("PORT")
+	if portServer == "" {
+		portServer = "8080" // Default port if not specified
+	}
+	fmt.Printf("Running Web Service on Port %v\n", portServer)
+	log.Fatal(http.ListenAndServe(":"+portServer, r))
 }
