@@ -1,6 +1,6 @@
 FROM golang:1.17-alpine AS builder
 WORKDIR /workspace
-COPY /web-service ./
+COPY ./ ./
 
 RUN go mod tidy
 
