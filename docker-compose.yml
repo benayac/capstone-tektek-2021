@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  web-services:
+    build:
+      context: .
+      dockerfile: web-service/Dockerfile
+    ports:
+      - "8080:8080"
+    networks: 
+      - tektek-net
+  ml-services:
+    build:
+      context: .
+      dockerfile: ml/Dockerfile
+    ports:
+      - "8001:8001"
+    networks:
+      - tektek-net
+networks:
+  tektek-net:
+    driver: bridge

@@ -1,0 +1,4 @@
+build:
+  docker:
+    web: web-service/Dockerfile
+    worker: ml/Dockerfile
