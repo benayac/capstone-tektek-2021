@@ -1,4 +1,5 @@
 from math import sin, cos, sqrt, atan2, radians
+import ml
 
 def get_distance_geolocations(lat1, lat2, lon1, lon2):
     R = 6373.0
@@ -17,13 +18,14 @@ def get_distance_geolocations(lat1, lat2, lon1, lon2):
 
     return distance
 
-def predict(first_text, second_text, model):
+def predict(first_text, second_text):
     # model predict
     # print("load model start")
     # model = TokenSimilarity()
     # model.load_pretrained('indobenchmark/indobert-base-p2')
     print("predict start")
-    accuracy = float(model.predict(first_text, second_text))
+    # accuracy = float(model.predict(first_text, second_text))
+    accuracy = float(ml.predict(first_text, second_text))
     print("acc: ", accuracy)
     # return accuracy[0][0]
     return accuracy

@@ -1,6 +1,7 @@
 transformers
-torch
+# torch
 sklearn
+nltk
 fastapi
 pydantic
 Sastrawi
