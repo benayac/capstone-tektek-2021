@@ -2,21 +2,21 @@ version: '3'
 
 services:
   web-services:
-    container_name: web
+    container_name: web-bert
     build:
       context: .
       dockerfile: web-service/Dockerfile
     ports:
-      - "8080:8080"
+      - "8081:8080"
     networks: 
       - tektek-net
   ml-services:
-    container_name: ml
+    container_name: ml-bert
     build:
       context: .
       dockerfile: ml/Dockerfile
     ports:
-      - "8001:8001"
+      - "8002:8001"
     networks:
       - tektek-net
 networks:
