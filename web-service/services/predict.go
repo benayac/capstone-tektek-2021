@@ -8,7 +8,6 @@ import (
 	"log"
 	"net/http"
 	"strconv"
-	"sync"
 
 	"github.com/bradfitz/slice"
 )
@@ -20,17 +19,18 @@ type Predict struct {
 
 func (p *Predict) Predict() {
 	fmt.Printf("Enter Predict Here!\n")
-	var wg sync.WaitGroup
-	wg.Add(len(p.ReportList))
+	// var wg sync.WaitGroup
+	// wg.Add(len(p.ReportList))
 	for i, r := range p.ReportList {
-		go func(r Report, index int) {
-			defer wg.Done()
-			accuracy := predictModel(p.SourceText, r.Keterangan)
-			p.ReportList[index].Accuracy = accuracy
-		}(r, i)
+		// go func(r Report, index int) {
+		// 	defer wg.Done()
+		accuracy := predictModel(p.SourceText, r.Keterangan)
+		// p.ReportList[index].Accuracy = accuracy
+		p.ReportList[i].Accuracy = accuracy
+		// }(r, i)
 		fmt.Printf("Go Routine\n")
 	}
-	wg.Wait()
+	// wg.Wait()
 }
 
 func (p *Predict) SortByAccuracy() {
