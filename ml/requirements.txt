@@ -4,3 +4,4 @@ pydantic
 requests
 uvicorn
 sentence_transformers
+torch
