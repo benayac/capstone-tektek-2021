@@ -1,9 +1,6 @@
-transformers
-torch
 sklearn
 fastapi
 pydantic
-Sastrawi
-joblib
 requests
 uvicorn
+sentence_transformers
