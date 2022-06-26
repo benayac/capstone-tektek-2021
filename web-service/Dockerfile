@@ -2,7 +2,7 @@ FROM golang:1.17-alpine AS builder
 WORKDIR /workspace
 COPY /web-service ./
 
-RUN go mod tidy
+# RUN go mod tidy
 
 # RUN go mod download
 

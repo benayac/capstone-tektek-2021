@@ -20,8 +20,7 @@ services:
       context: .
       dockerfile: web-service/Dockerfile
     depends_on:
-      database:
-        condition: service_healthy
+      - database
     ports:
       - "8080:8080"
     networks: 
