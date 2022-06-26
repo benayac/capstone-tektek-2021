@@ -6,11 +6,11 @@ from model import TestPredictBatch, TextComparation
 
 import helper
 
-# from ml import TokenSimilarity
+from ml import TokenSimilarity
 
 
-# model = TokenSimilarity()
-# model.load_pretrained('indobenchmark/indobert-large-p2')
+model = TokenSimilarity()
+model.load_pretrained('indobenchmark/indobert-base-p2')
 
 app = FastAPI()
 # app = Flask(__name__)
@@ -29,7 +29,7 @@ def test():
     
 @app.post("/predict")
 async def predicts(request: TextComparation):
-    result = helper.predict(request.first_text, request.second_text)
+    result = helper.predict(request.first_text, request.second_text, model)
     response = {
         'success': True,
         'request': {

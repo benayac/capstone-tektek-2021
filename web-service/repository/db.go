@@ -18,8 +18,10 @@ func GetConnection(host string, port int, user, password, dbName string) (*sql.D
 		password = `''`
 	}
 
-	connStr := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=require",
+	connStr := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
 		host, port, user, password, dbName)
+	// connStr := fmt.Sprintf("postgres://%v:%v@%v:%v/%v?sslmode=disable", user, password, host, port, dbName)
+	// fmt.Println("COnnection: " + connStr + "\n")
 	database, err := sql.Open("postgres", connStr)
 	if err != nil {
 		return nil, err

@@ -13,21 +13,12 @@ import (
 	_ "github.com/lib/pq"
 )
 
-type TextRequest struct {
-	OriginalText string   `json:"original_text"`
-	ListText     []string `json:"list_text"`
-}
-
-type TextResponse struct {
-	Accuracy []float32 `json:"accuracy"`
-}
-
 func main() {
-	host := "ec2-34-231-177-125.compute-1.amazonaws.com"
+	host := "database"
 	port := 5432
-	user := "fehpznrplelelp"
-	password := "d2dfd6e2a77875b8262e7cb7f6b0b5a9dd198d9c7ef210358bdfb74ae0c7e1d9"
-	dbName := "d4im81g199tbsh"
+	user := "user"
+	password := "password"
+	dbName := "db"
 	db, err := repository.GetConnection(host, port, user, password, dbName)
 	if err != nil {
 		log.Fatal(fmt.Sprintf("Error Load DB: %v", err.Error()))

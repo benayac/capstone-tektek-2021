@@ -1,5 +1,5 @@
 transformers
-# torch
+torch
 sklearn
 nltk
 fastapi
