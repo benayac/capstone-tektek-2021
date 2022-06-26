@@ -12,13 +12,16 @@ services:
       - "5432:5432"
     networks:
       - tektek-net
+    healthcheck:
+      test: "exit 0"
   web-services:
     container_name: web
     build:
       context: .
       dockerfile: web-service/Dockerfile
     depends_on:
-      - database
+      database:
+        condition: service_healthy
     ports:
       - "8080:8080"
     networks: 
